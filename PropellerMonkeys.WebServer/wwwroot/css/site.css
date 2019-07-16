@@ -1,0 +1,8 @@
+﻿body, html{
+  padding:0px; margin:0px;
+}
+
+.template{
+  visibility:hidden;
+  display:none;
+}

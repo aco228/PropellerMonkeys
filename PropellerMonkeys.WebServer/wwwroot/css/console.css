@@ -1,0 +1,17 @@
+﻿html {
+  background: black;
+  color: white;
+}
+
+.console_entry {
+  width: 100%;
+}
+
+.created {
+  display: inline;
+  color: gray;
+}
+
+.text {
+  display: inline;
+}

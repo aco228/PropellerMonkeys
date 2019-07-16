@@ -1,0 +1,54 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>PropellerMonkeys || Server</title>
+  <link href="~/css/site.css" rel="stylesheet" />
+  <link href="~/css/console.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="~/js/signalr.min.js"></script>
+  <script src="~/js/console.hub.js"></script>
+</head>
+<body>
+
+  <div class="template" id="template">
+    <div class="console_entry">
+      <div class="created">7.04.2019 16:23</div>
+      <div class="text">7.04.2019 16:23</div>
+    </div>
+  </div>
+
+  <div id="console">
+
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      var connection = new signalR.HubConnectionBuilder().withUrl("/consoleHub").build();
+      connection.start().then(function () {
+      }).catch(function (err) {
+          return console.error(err.toString());
+      });
+      connection.on("update", function (entry) { add(entry); });
+      loadPrevious();
+    });
+
+    function loadPrevious() {
+      $.ajax({
+        url: '/console/LoadPrevious',
+        success: function (data) {
+          for (var i = 0; i < data.length; i++)
+            add(data[i]);
+        }
+      });
+    }
+
+    function add(entry) {
+      var template = $($('#template').html());
+      template.find('.created').text(entry.createdString);
+      template.find('.text').text(entry.text);
+      console.log(template.html());
+      $('#console').prepend(template);
+    }
+  </script>
+
+</body>
+</html>

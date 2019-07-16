@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PropellerMonkeys.Core\PropellerMonkeys.Core.csproj" />
+    <ProjectReference Include="..\PropellerMonkeys.Server\PropellerMonkeys.Sockets.Core.csproj" />
+  </ItemGroup>
+
+</Project>

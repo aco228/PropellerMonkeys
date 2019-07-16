@@ -1,0 +1,23 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title></title>
+  <link href="~/css/site.css" rel="stylesheet" />
+  <script src="~/js/jquery.js"></script>
+  <script src="~/js/webview.js"></script>
+</head>
+<body>
+
+  <webview id="webview" src="https://partners.propellerads.com/#/app/auth" style="display:inline-flex; width:100%; height:100%"></webview>
+
+  <script>
+    var _webview = null;
+    var _username = '@ViewBag.Username';
+    var _password = '@ViewBag.Password';
+    document.addEventListener('DOMContentLoaded', function () {
+      _webview = new webview();
+    });
+  </script>
+
+
+</body>
+</html>
